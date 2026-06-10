@@ -1,34 +1,80 @@
+GLUE:
+list index out of range
 
-STORAGE:
-S3 lks-tfstate-* versioning ENABLED
-Versioning not enabled on lks-tfstate-adelyafauzi-2026
+DYNAMODB:
+Table healthpredict-predictions ACTIVE
+An error occurred (ResourceNotFoundException) when calling the DescribeTable operation: Requested resource not found: Table: healthpredict-predictions
 
-S3 lks-tfstate-* lifecycle policy configured (bonus)
-An error occurred (NoSuchLifecycleConfiguration) when calling the GetBucketLifecycleConfiguration operation: The
+Key schema: patient_id (PK) + prediction_timestamp (SK)
+An error occurred (ResourceNotFoundException) when calling the DescribeTable operation: Requested resource not found: Table: healthpredict-predictions
+
+TTL attribute expiry_time ENABLED
+An error occurred (ResourceNotFoundException) when calling the DescribeTimeToLive operation: Requested resource n
 
 
-MONITORING:
-lks-prometheus-service ACTIVE (us-west-2)
-tidak running
+SAGEMAKER
+Pipeline healthpredict-training-pipeline registered
+An error occurred (ResourceNotFound) when calling the DescribePipeline operation: Pipeline 'arn:aws:sagemaker:us-west-2:391876680850:pipeline/healthpr
 
-lks-grafana-service ACTIVE (us-west-2)
-tidak running
+Model package group healthpredict-model-group exists
+An error occurred (ValidationException) when calling the DescribeModelPackageGroup operation: ModelPackageGroup arn:aws:sagemaker:us-west-2:3918766808
 
-Monitoring services running: Prometheus + Grafana (us-west-2)
-Prometheus running=0, Grafana running=0 — pastikan kedua service punya task running
+Latest pipeline execution Succeeded
+An error occurred (ResourceNotFound) when calling the ListPipelineExecutions operation: Pipeline 'arn:aws:sagemaker:us-west-2:391876680850:pipeline/he
 
-Grafana HTTP 200 via monitoring ALB
-HTTP Error 503: Service Temporarily Unavailable
+Model package Approved in Registry
+list index out of range
 
-TERAFORM:
-Terraform state berisi resources (apply berhasil)
-File terraform.tfstate tidak ditemukan di lks-tfstate-adelyafauzi-2026
+Endpoint healthpredict-endpoint-diabetes InService
+An error occurred (ValidationException) when calling the DescribeEndpoint operation: Could not find endpoint "healthpredict-endpoint-diabetes".
 
-Terraform: VPC/Subnet/SG di-provision via IaC
-State file tidak ditemukan
+Endpoint smoke test — score in [0.0, 1.0]
+An error occurred (ValidationError) when calling the InvokeEndpoint operation: Endpoint healthpredict-endpoint-diabetes of account 391876680850 not fo
 
-Terraform: RDS di-provision via IaC
-State file tidak ditemukan
+EVENTBRIDGE
+Topic healthpredict-sns-alerts exists
+topic not found
 
-Terraform: ALB di-provision via IaC
-State file tidak ditemukan
+Rule healthpredict-weekly-trigger ENABLED
+An error occurred (ResourceNotFoundException) when calling the DescribeRule operation: Rule healthpredict-weekly-trigger does not exist on EventBus de
+
+Cron expression cron(0 2 ? * MON *) correct
+An error occurred (ResourceNotFoundException) when calling the DescribeRule operation: Rule healthpredict-weekly
+
+API
+API healthpredict-api exists not found
+
+API key healthpredict-api-key exists
+list index out of range
+
+GET /health returns status healthy
+no endpoint
+
+POST /predict returns risk_score + risk_level
+no ep/key
+
+GET /predict/{patient_id} returns prediction history
+no ep/key
+
+GET /history returns list of predictions
+no ep/key
+
+Prediction record stored in DynamoDB
+An error occurred (ResourceNotFoundException) when calling the Query operation: Requested resource not found
+
+
+LAMBDA
+healthpredict-lambda-predict Active
+An error occurred (ResourceNotFoundException) when calling the GetFunction operation: Function not found: arn:aws:lambda:us-west-2:391876680850:functi
+healthpredict-lambda-history Active
+An error occurred (ResourceNotFoundException) when calling the GetFunction operation: Function not found: arn:a
+
+AMPLIFY
+Amplify app healthpredict-frontend deployed
+not found
+
+Amplify latest deployment SUCCEED
+app not found or no deployments
+
+Amplify frontend URL accessible (HTTP 200)
+app not found
