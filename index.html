@@ -1,1 +1,34 @@
-do the best 
+
+STORAGE:
+S3 lks-tfstate-* versioning ENABLED
+Versioning not enabled on lks-tfstate-adelyafauzi-2026
+
+S3 lks-tfstate-* lifecycle policy configured (bonus)
+An error occurred (NoSuchLifecycleConfiguration) when calling the GetBucketLifecycleConfiguration operation: The
+
+
+MONITORING:
+lks-prometheus-service ACTIVE (us-west-2)
+tidak running
+
+lks-grafana-service ACTIVE (us-west-2)
+tidak running
+
+Monitoring services running: Prometheus + Grafana (us-west-2)
+Prometheus running=0, Grafana running=0 — pastikan kedua service punya task running
+
+Grafana HTTP 200 via monitoring ALB
+HTTP Error 503: Service Temporarily Unavailable
+
+TERAFORM:
+Terraform state berisi resources (apply berhasil)
+File terraform.tfstate tidak ditemukan di lks-tfstate-adelyafauzi-2026
+
+Terraform: VPC/Subnet/SG di-provision via IaC
+State file tidak ditemukan
+
+Terraform: RDS di-provision via IaC
+State file tidak ditemukan
+
+Terraform: ALB di-provision via IaC
+State file tidak ditemukan
