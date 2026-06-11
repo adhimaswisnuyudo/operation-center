@@ -1,1 +1,37 @@
-focus on step function
+event bridge:
+Rule *low-stock* ENABLED (rate 1 hour)
+Rule mengandung 'stock' tidak ditemukan (ada: ['techno-eventbridge-daily-report', 'techno-eventbridge-order-status'])
+
+
+apigateway:
+
+
+Stage production exists with X-Ray tracing
+X-Ray not enabled on stage
+
+GET /health returns healthy
+HTTP Error 502: Bad Gateway
+
+POST /orders returns order_id
+HTTP Error 502: Bad Gateway
+
+
+GET /orders lists orders
+HTTP Error 502: Bad Gateway
+
+
+
+cloudwatch
+CloudWatch Alarms techno-* exist
+only 5/6: ['techno-api-4XX-alarm
+
+cicd
+CodeDeploy deployment pernah dibuat
+belum ada deployment
+
+
+cloudformation
+CFN: Secrets Manager provisioned via IaC
+Tidak ada stack CFN dengan secret
+GitHub Actions workflow success
+Repo GitHub tidak diisi
